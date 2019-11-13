@@ -798,8 +798,12 @@ paths:
               $ref: '#/components/schemas/TaskActionRequest'
         required: true
       responses:
-        200:
-          description: Success
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncTaskCreatedResponse'
+          description: A new task will be created and returned. If sender's cancellation is triggered, the task will be asynchronous and require the user to monitor its progress.
         400:
           content:
             application/json:
@@ -1272,6 +1276,7 @@ components:
       - delete_wallet
       - outgoing_confirm_request
       - incoming_confirm_request
+      - cancellation
       type: string
     TaskData:
       description: An object that includes additional request details
@@ -2148,6 +2153,9 @@ components:
           type: string
         recipient_address:
           description: The address of the Wallet the Assets were transferred to
+          type: string
+        confirmed_by:
+          description: The public key of the Wallet that confirmed receipt of this transfer
           type: string
         asset_id:
           description: |

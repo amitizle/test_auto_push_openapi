@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **NodeCancelTaskPost**
-> NodeCancelTaskPost(ctx, taskActionRequest)
+> AsyncTaskCreatedResponse NodeCancelTaskPost(ctx, taskActionRequest)
 Cancel task with pending incoming transaction both incoming and outgoing [async call]
 
 A user may select to decline an incoming transaction. The related task will change its result to failure both on senders and the receivers side. This endpoint can also be used to cancel an outgoing pending transaction that is awaiting user interaction from the receiver
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**AsyncTaskCreatedResponse**](AsyncTaskCreatedResponse.md)
 
 ### Authorization
 
